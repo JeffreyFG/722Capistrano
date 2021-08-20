@@ -1,0 +1,204 @@
+html, body 
+{
+	padding: 0px;
+	margin: 0px;
+}
+html 
+{
+	overflow:visible;
+}
+h1
+{
+    padding-top: 5rem;
+}
+div.navBarContent
+{
+    text-align: center;
+}
+.navBar
+{
+    display: block;
+	list-style-type: none;
+  	margin-top: 0;
+  	padding: 1.5rem;
+	top: 0;
+	left: 0;
+	right: 0;
+  	background-image:linear-gradient(to right , rgb(0, 3, 39),rgb(0, 96, 138)) ;
+	position: fixed;
+    text-align: center;
+    z-index: 10;
+}
+.navBarElement
+{
+	display: inline;
+	font-size: 2rem;
+	padding-left: 2rem;
+	padding-right:2rem;
+    padding-top: 1rem;
+}
+.navBarElement a
+{
+	color: white;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;	
+}
+.navLink:hover
+{
+	border-bottom: #11a9cf;
+	border-width: 5;
+	border-bottom-style: solid;
+}
+body 
+{
+    padding-top: 0rem;
+	width: 100vw;
+	height: min-content;
+	overflow-x: hidden;
+	overflow-y: auto;
+	perspective: 1px;
+    -webkit-perspective: 1px;
+	transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+}
+div.parallax 
+{
+    padding-top: 2rem;
+	width: 100vw;
+	height: 70vh;
+	position: relative;
+	transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+}
+div.parallax:after 
+{
+	background-image: url("/bg.jpg");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	z-index: -1;
+	content: "";
+	transform: translateZ(-1px) scale(2);
+	-webkit-transform: translateZ(-1px) scale(2);
+}
+.parallax h1
+{
+    padding-left: 3rem;
+}
+div.content-inner 
+{
+    background-color: white;
+    width: 100%;
+    font-family: "Arial";
+    font-size: 13pt;
+    color: #333;
+    line-height: 1.40em;
+    margin: 0px auto;
+    display: block;
+    padding-top: 2rem;
+    padding-left: 6rem;
+    padding-right: 6rem;
+    perspective: 2px;
+	-webkit-perspective: 2px;
+    height: 100%;
+}
+body.SecondaryPages
+{
+    background-image: url(/bg.jpg);
+    background-attachment: fixed;
+    background-position: center center;
+  	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+.grid-container-for-gallery 
+{
+    background: white;
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(340px,1fr));    
+    padding: 10px;
+    grid-gap:1em;
+    font-size: 2em;
+    margin-top: 5rem;
+    margin-left: 8rem;
+    margin-right: 8rem;
+}
+.grid-item
+{
+    grid-column-start: auto;
+    grid-column-end: auto;
+    grid-row-start: auto;
+    grid-row-end: auto;
+
+}
+.grid-img 
+{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.navBarMobile
+{
+    display: none;
+}
+
+/****************************************************************************************************/
+@media (max-width: 1024px) 
+{
+    div.content-inner 
+    {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    h1 
+    {
+        width: 88%;
+        font-size: 50pt;
+        padding: 10vh 20px;
+        float: none;
+    }
+    body 
+    {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .grid-container-for-gallery
+    {
+        margin-left: 0rem;
+        margin-right: 0rem;
+    }
+    .navBar
+    {
+        display: none;
+        text-align: center;
+        padding-top: 3rem;
+    }
+    .navBarMobile
+    {
+        list-style-type: none;
+        display: block;
+        margin-top: 0;
+  	    padding: 1.5rem;
+	    top: 0;
+	    left: 0;
+        right: 0;
+  	    background-image:linear-gradient(to right , rgb(0, 3, 39),rgb(0, 96, 138)) ;
+	    position: fixed;
+        text-align: right;
+        z-index: 10;
+
+    }
+    .navBarMobileElement
+    {
+        color: white;
+    }
+    .navBarElement
+    {
+        display: block;
+        width: 100%;
+    }
+}

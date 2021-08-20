@@ -1,0 +1,28 @@
+{
+  "name": "capistrano",
+  "version": "1.0.0",
+  "description": "A website for my parents rental house",
+  "main": "app.js",
+  "scripts": {
+    "test": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JeffreyFG/722Capistrano.git"
+  },
+  "keywords": [
+    "Rental",
+    "property",
+    "website"
+  ],
+  "author": "Jeffrey FG",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JeffreyFG/722Capistrano/issues"
+  },
+  "homepage": "https://github.com/JeffreyFG/722Capistrano#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.12"
+  }
+}
