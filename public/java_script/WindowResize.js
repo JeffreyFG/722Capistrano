@@ -3,19 +3,19 @@ function myFunction()
 {
       var navBar = document.getElementById("mainNavBar");
       var body = document.getElementById("body");
-      var paralax =document.getElementById("parallax");
+      var paralax =document.getElementById("wrapper");
       if (navBar.style.display === "block") 
       {
         navBar.style.display = "none";
-        paralax.style.paddingTop="2rem";
+        paralax.style.paddingTop="0rem";
         navBar.style.padingTop= "0rem";
       } 
       else 
       {
         navBar.style.display = "block";
         navBar.style.padingTop= "20rem";
-        paralax.style.paddingTop="25rem";
-        paralax.style.paddingBottom="0rem";
+        paralax.style.paddingTop="18rem";
+        paralax.style.paddingBottom="1.5rem";
       }
     }
     function resize() 

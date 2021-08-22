@@ -20,10 +20,11 @@ div.navBarContent
     display: block;
 	list-style-type: none;
   	margin-top: 0;
-  	padding: 1.5rem;
 	top: 0;
 	left: 0;
 	right: 0;
+    padding-top: 1rem;
+    padding-right: 1rem;
   	background-image:linear-gradient(to right , rgb(0, 3, 39),rgb(0, 96, 138)) ;
 	position: fixed;
     text-align: center;
@@ -50,67 +51,74 @@ div.navBarContent
 	border-width: 5;
 	border-bottom-style: solid;
 }
-body 
-{
-    padding-top: 0rem;
-	width: 100vw;
-	height: min-content;
-	overflow-x: hidden;
-	overflow-y: auto;
-	perspective: 1px;
-    -webkit-perspective: 1px;
-	transform-style: preserve-3d;
-    -webkit-transform-style: preserve-3d;
-}
-div.parallax 
-{
-    padding-top: 2rem;
-	width: 100vw;
-	height: 70vh;
-	position: relative;
-	transform-style: preserve-3d;
-    -webkit-transform-style: preserve-3d;
-}
-div.parallax:after 
-{
-	background-image: url("/bg.jpg");
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: cover;
-	position: absolute;
-	top: 0px;
-	left: 0px;
-	right: 0px;
-	bottom: 0px;
-	z-index: -1;
-	content: "";
-	transform: translateZ(-1px) scale(2);
-	-webkit-transform: translateZ(-1px) scale(2);
-}
-.parallax h1
-{
-    padding-left: 3rem;
-}
-div.content-inner 
-{
-    background-color: white;
-    width: 100%;
-    font-family: "Arial";
-    font-size: 13pt;
-    color: #333;
-    line-height: 1.40em;
-    margin: 0px auto;
-    display: block;
-    padding-top: 2rem;
-    padding-left: 6rem;
-    padding-right: 6rem;
+body,html{margin:0;padding:0; overflow-x: hidden;}
+
+
+
+
+.wrapper {
+    /* The height needs to be set to a fixed value for the effect to work.
+     * 100vh is the full height of the viewport. */
+    height: 100vh;
+    /* The scaling of the images would add a horizontal scrollbar, so disable x overflow. */
+    overflow-x: hidden;
+    /* Enable scrolling on the page. */
+    overflow-y: auto;
+    /* Set the perspective to 2px. This is essentailly the simulated distance from the viewport to transformed objects.*/
     perspective: 2px;
-	-webkit-perspective: 2px;
-    height: 100%;
-}
+    padding-top: 0rem;
+  }
+  
+  .section {
+    /* Needed for children to be absolutely positioned relative to the parent. */
+    position: relative;
+    /* The height of the container. Must be set, but it doesn't really matter what the value is. */
+    height: 100vh;
+    
+    /* For text formatting. */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    text-shadow: 0 0 5px white;
+    font-size: 2rem;
+  }
+  
+  .parallax::after {
+    /* Display and position the pseudo-element */
+    content: " ";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    
+    /* Move the pseudo-element back away from the camera,
+     * then scale it back up to fill the viewport.
+     * Because the pseudo-element is further away, it appears to move more slowly, like in real life. */
+    transform: translateZ(-1px) scale(1.5);
+    /* Force the background image to fill the whole element. */
+    background-size: 100%;
+    /* Keep the image from overlapping sibling elements. */ 
+    z-index: -1;
+  }
+  
+  /* The styling for the static div. */
+  .static {
+    background: white;
+    
+  }
+  
+  /* Sets the actual background images to adorable kitties. This part is crucial. */
+  .bg1::after {
+    background-image:url("/bg.jpeg");
+  }
+
+
+
 body.SecondaryPages
 {
-    background-image: url(/bg.jpg);
+    background-image: url(/bg.jpeg);
     background-attachment: fixed;
     background-position: center center;
   	background-repeat: no-repeat;
@@ -128,6 +136,25 @@ body.SecondaryPages
     margin-left: 8rem;
     margin-right: 8rem;
 }
+.grid-container-for-nearBy 
+{
+    background: white;
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(600px,1fr));    
+    padding: 10px;
+    grid-gap:1em;
+    font-size: 2em;
+    margin-top: 2rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+#near-by-title
+{
+    text-align: center;
+}
 .grid-item
 {
     grid-column-start: auto;
@@ -142,25 +169,50 @@ body.SecondaryPages
     height: 100%;
     object-fit: cover;
 }
+
 .navBarMobile
 {
     display: none;
 }
-
+.grid-map
+{
+    width: 600px;
+    height: 450;
+}
 /****************************************************************************************************/
 @media (max-width: 1024px) 
 {
-    div.content-inner 
+    .grid-container-for-nearBy 
     {
-        padding-left: 1rem;
-        padding-right: 1rem;
+        margin-left: 0rem;
+        margin-right: 0rem;
+        margin-bottom: 2rem;
+        text-align: center;
     }
-    h1 
+    .grid-item
     {
-        width: 88%;
-        font-size: 50pt;
-        padding: 10vh 20px;
-        float: none;
+        padding-left: 0rem;
+        padding-right: 0rem;
+        width: 400px;
+        text-align: center;
+    }
+    .grid-map
+    {
+        width: 350px;
+        height: auto;
+        padding-left: 0rem;
+        padding-right: 0rem;
+    }
+    .wrapper
+    {
+        height: 95vh;
+    }
+    .static {
+        margin-top: 20rem;
+      }
+    .section
+    {
+        height: 45%;
     }
     body 
     {
@@ -174,31 +226,37 @@ body.SecondaryPages
     .navBar
     {
         display: none;
-        text-align: center;
+        text-align: left;
         padding-top: 3rem;
+        padding-bottom: 3rem;
+        margin-bottom: 0;
+        padding-left: 0rem;
+        padding-right: 0rem;
     }
     .navBarMobile
     {
         list-style-type: none;
         display: block;
         margin-top: 0;
-  	    padding: 1.5rem;
-	    top: 0;
-	    left: 0;
-        right: 0;
+  	    padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+        margin-bottom: 0rem;
   	    background-image:linear-gradient(to right , rgb(0, 3, 39),rgb(0, 96, 138)) ;
 	    position: fixed;
         text-align: right;
         z-index: 10;
+        width: 100%;
 
     }
     .navBarMobileElement
     {
         color: white;
+        margin-right: 1rem;
     }
     .navBarElement
     {
         display: block;
         width: 100%;
     }
+   
 }
